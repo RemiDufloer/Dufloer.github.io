@@ -30,16 +30,6 @@ header h1 {
     flex-grow: 1;
 }
 
-/* Photo du profil */
-.header-photo {
-    margin-right: 20px;
-}
-
-.profile-photo {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%; /* Rendre l'image ronde */
-}
 
 /* Navigation */
 nav ul {

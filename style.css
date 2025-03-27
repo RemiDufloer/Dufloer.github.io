@@ -5,6 +5,9 @@ body {
     padding: 0;
     background-color: #f8f9fa;
     color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* S'assure que le body occupe toute la hauteur de la fenêtre */
 }
 
 /* Centrer le contenu avec des marges à gauche et à droite */
@@ -12,24 +15,35 @@ body {
     max-width: 900px;
     margin: 0 auto; /* Centre le contenu */
     padding: 20px;
+    flex-grow: 1; /* Permet au contenu de prendre l'espace restant */
 }
 
 /* En-tête */
 header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     background-color: #007bff;
     color: white;
     padding: 15px 20px;
 }
 
+/* Photo du profil */
+.header-photo {
+    margin-right: 15px; /* Espace entre la photo et le titre */
+}
+
+.profile-photo {
+    width: 90px;  /* Taille réduite de l'image */
+    height: 90px; /* Taille réduite de l'image */
+    border-radius: 30%; /* Rendre l'image ronde */
+}
+
+/* Titre de la page */
 header h1 {
     margin: 0;
     font-size: 24px;
     flex-grow: 1;
 }
-
 
 /* Navigation */
 nav ul {
@@ -65,27 +79,8 @@ footer {
     background-color: #007bff;
     color: white;
     margin-top: 20px;
-}
-
-
-/* Photo du profil */
-.header-photo {
-    margin-right: 15px; /* Espace entre la photo et le titre */
-}
-
-.profile-photo {
-    width: 90px;  /* Taille réduite de l'image */
-    height: 90px; /* Taille réduite de l'image */
-    border-radius: 50%; /* Rendre l'image ronde */
-}
-
-/* Pied de page */
-footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    margin-top: 20px;
-    /* Cela est suffisant pour s'assurer qu'il est toujours en bas, mais ajouté dans le contexte flexbox */
-    margin-top: auto;
+    /* Utilisation de flexbox pour coller le footer en bas */
+    margin-top: auto; 
+    /* Ajout de `flex-shrink: 0` pour que le footer ne se réduise pas s'il y a peu de contenu */
+    flex-shrink: 0;
 }

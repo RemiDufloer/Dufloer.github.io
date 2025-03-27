@@ -84,7 +84,7 @@ footer {
 }
 
 .profile-photo {
-    width: 230px;  /* Taille réduite de l'image */
-    height: 230px; /* Taille réduite de l'image */
+    width: 130px;  /* Taille réduite de l'image */
+    height: 130px; /* Taille réduite de l'image */
     border-radius: 50%; /* Rendre l'image ronde */
 }

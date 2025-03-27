@@ -76,3 +76,15 @@ footer {
     color: white;
     margin-top: 20px;
 }
+
+
+/* Photo du profil */
+.header-photo {
+    margin-right: 15px; /* Espace entre la photo et le titre */
+}
+
+.profile-photo {
+    width: 30px;  /* Taille réduite de l'image */
+    height: 30px; /* Taille réduite de l'image */
+    border-radius: 50%; /* Rendre l'image ronde */
+}

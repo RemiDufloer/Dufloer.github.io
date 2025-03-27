@@ -78,3 +78,14 @@ footer {
     height: 90px; /* Taille réduite de l'image */
     border-radius: 50%; /* Rendre l'image ronde */
 }
+
+/* Pied de page */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    margin-top: 20px;
+    /* Cela est suffisant pour s'assurer qu'il est toujours en bas, mais ajouté dans le contexte flexbox */
+    margin-top: auto;
+}

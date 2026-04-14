@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teaching</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: #f8f8f6;
+            color: #1a1a18;
+        }
+        .container {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 0 1.5rem 4rem;
+        }
+        .header {
+            padding: 3rem 0 1.5rem;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        .header h1 { font-size: 28px; }
+        .header p { font-size: 15px; color: #666; }
+
+        .filters {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .filter-btn {
+            border: 1px solid rgba(0,0,0,0.18);
+            border-radius: 8px;
+            padding: 5px 14px;
+            font-size: 13px;
+            cursor: pointer;
+            background: transparent;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: #eee;
+        }
+
+        .count {
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 0.75rem;
+        }
+
+        .courses {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .course-card {
+            background: #fff;
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            gap: 1.25rem;
+        }
+
+        .course-year {
+            font-size: 12px;
+            background: #f1efea;
+            padding: 4px 10px;
+            border-radius: 8px;
+        }
+
+        .course-title {
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: 6px;
+        }
+
+        .course-desc {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .course-meta {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            font-size: 11px;
+            padding: 3px 10px;
+            border-radius: 8px;
+        }
+
+        .badge.level { background: #e6f1fb; }
+        .badge.td { background: #eaf3de; }
+        .badge.tp { background: #faeeda; }
+        .badge.cm { background: #f3e6fb; }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="talks.html">Talks</a></li>
+            <li><a href="teaching.html">Teaching</a></li>
+            <li><a href="survey.html">Survey</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Teaching</h1>
+        <p>Enseignements</p>
+    </div>
+
+    <div class="filters">
+        <button class="filter-btn active" onclick="filterCourses('all', this)">Tout</button>
+        <button class="filter-btn" onclick="filterCourses('2025', this)">2025</button>
+        <button class="filter-btn" onclick="filterCourses('2026', this)">2026</button>
+    </div>
+
+    <p class="count" id="count"></p>
+
+    <div class="courses" id="courses-list">
+
+        <!-- ===== MPSCI INFO ===== -->
+        <div class="course-card" data-year="2026">
+            <span class="course-year">2026</span>
+
+            <div>
+                <p class="course-title">MPSCI INFO</p>
+
+                <p class="course-desc">
+                    Introduction à la programmation et à l’utilisation des structures de données.
+                    Les étudiants apprennent à manipuler des structures classiques et à développer
+                    des programmes simples.
+                </p>
+
+                <div class="course-meta">
+                    <span class="badge level">L1</span>
+                    <span class="badge td">TD</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== PDS ===== -->
+        <div class="course-card" data-year="2025">
+            <span class="course-year">2025</span>
+
+            <div>
+                <p class="course-title">PDS (Programmation des Systèmes)</p>
+
+                <p class="course-desc">
+                    Étude du système de fichiers dans l’API POSIX (droits d’accès, utilisation)
+                    et introduction aux threads : création, gestion et synchronisation.
+                </p>
+
+                <div class="course-meta">
+                    <span class="badge level">L3</span>
+                    <span class="badge td">TD</span>
+                    <span class="badge tp">TP</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+function sortCourses() {
+    const container = document.getElementById('courses-list');
+    const cards = Array.from(container.querySelectorAll('.course-card'));
+
+    cards.sort((a, b) => b.dataset.year - a.dataset.year);
+    cards.forEach(card => container.appendChild(card));
+}
+
+function filterCourses(year, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const cards = document.querySelectorAll('.course-card');
+    let visible = 0;
+
+    cards.forEach(card => {
+        const match = year === 'all' || card.dataset.year === year;
+        card.style.display = match ? '' : 'none';
+        if (match) visible++;
+    });
+
+    document.getElementById('count').textContent =
+        visible + ' cours' + (visible > 1 ? 's' : '');
+}
+
+sortCourses();
+filterCourses('all', document.querySelector('.filter-btn'));
+</script>
+
+</body>
+</html>

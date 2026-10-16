@@ -16,7 +16,7 @@
                 <li><a href="talks.html">Talks</a></li>
                 <li><a href="survey.html">Survey</a></li>
                 <li><a href="class.html">Teaching</a></li>
-                <li><a href="competences.html">Quality</a></li>
+                <li><a href="competences.html">Skills</a></li>
             </ul>
         </nav>
     </header>
@@ -92,7 +92,7 @@
             publications.sort((a, b) => b.annee - a.annee);
             document.getElementById('papers-list').innerHTML = publications.map(renderPaper).join('');
 
-            const years = [...new Set(publications.map(p => String(p.annee)))].sort();
+            const years = [...new Set(publications.map(p => String(p.annee)))];
             const filters = document.getElementById('filters');
             const firstType = document.getElementById('filter-conf');
             years.forEach(y => {

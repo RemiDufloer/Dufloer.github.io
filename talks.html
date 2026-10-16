@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,8 +14,10 @@
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="papers.html">Publications</a></li>
+            <li><a href="talks.html">Talks</a></li>
             <li><a href="survey.html">Survey</a></li>
             <li><a href="class.html">Teaching</a></li>
+            <li><a href="competences.html">Quality</a></li>
         </ul>
     </nav>
 </header>
@@ -24,26 +26,25 @@
 
     <div class="header">
         <h1>Talks</h1>
-        <p>Présentations et interventions scientifiques</p>
+        <p>Scientific talks and presentations</p>
     </div>
 
     <div class="filters">
-        <button class="filter-btn active" onclick="filterTalks('all', this)">Tout</button>
-        <button class="filter-btn" onclick="filterTalks('2024', this)">2025</button>
-        <button class="filter-btn" onclick="filterTalks('2025', this)">2026</button>
+        <button class="filter-btn active" onclick="filterTalks('all', this)">All</button>
+        <button class="filter-btn" onclick="filterTalks('2025', this)">2025</button>
+        <button class="filter-btn" onclick="filterTalks('2024', this)">2024</button>
     </div>
 
     <p class="count" id="count"></p>
 
     <div class="talks" id="talks-list">
 
-        <!-- TALK 1 -->
         <div class="talk-card" data-year="2025">
             <span class="talk-year">2025</span>
             <div class="talk-body">
                 <p class="talk-title">Divergence-Driven Debugging</p>
                 <p class="talk-meta">ICPC · Ottawa</p>
-                <p class="talk-date">Avril 2025</p>
+                <p class="talk-date">April 2025</p>
             </div>
             <div class="talk-actions">
                 <a class="btn-download" href="talksPrint/talk1.pdf" download>
@@ -112,7 +113,6 @@
 </div>
 
 <script>
-// 🔽 TRI AUTOMATIQUE (plus récent → ancien)
 function sortTalks() {
     const container = document.getElementById('talks-list');
     const cards = Array.from(container.querySelectorAll('.talk-card'));
@@ -122,7 +122,6 @@ function sortTalks() {
     cards.forEach(card => container.appendChild(card));
 }
 
-// 🔽 FILTRE
 function filterTalks(year, btn) {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
@@ -140,7 +139,6 @@ function filterTalks(year, btn) {
         visible + ' talk' + (visible > 1 ? 's' : '');
 }
 
-// INIT
 sortTalks();
 filterTalks('all', document.querySelector('.filter-btn'));
 </script>

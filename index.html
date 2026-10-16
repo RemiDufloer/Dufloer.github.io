@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rémi Dufloer - Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
     <header>
-        <!-- Photo à gauche -->
         <div class="header-photo">
             <img src="images/photo.jpg" alt="Rémi Dufloer" class="profile-photo">
         </div>
@@ -30,10 +30,39 @@
             <h2>About Me</h2>
             <p>I am Rémi Dufloer, a researcher in software engineering. My work focuses on debugging, especially on bugs across different software versions.</p>
         </section>
+
+        <section id="last-paper">
+            <h2>Latest Paper</h2>
+            <p class="last-paper-title" id="last-paper-title"></p>
+            <p class="last-paper-authors" id="last-paper-authors"></p>
+            <p class="last-paper-meta" id="last-paper-meta"></p>
+            <div class="last-paper-links">
+                <a class="last-paper-pdf" id="last-paper-pdf" download>PDF</a>
+                <a href="papers.html">All publications →</a>
+            </div>
+        </section>
     </div>
-    
-    <footer>
-        <p>© 2025 Rémi Dufloer</p>
-    </footer>
+
+    <script>
+        async function loadLastPaper() {
+            const res = await fetch('publication/publication.json');
+            const { publications } = await res.json();
+
+            const last = publications.reduce((a, b) => b.annee >= a.annee ? b : a);
+
+            document.getElementById('last-paper-title').textContent = last.titre;
+            document.getElementById('last-paper-authors').innerHTML = last.auteurs
+                .map(a => a === 'Rémi Dufloer' ? `<strong>${a}</strong>` : a)
+                .join(', ');
+            document.getElementById('last-paper-meta').textContent =
+                [last.venue, last.lieu, last.date].filter(Boolean).join(' · ');
+
+            const pdf = document.getElementById('last-paper-pdf');
+            if (last.fichier) pdf.href = last.fichier;
+            else pdf.remove();
+        }
+
+        loadLastPaper();
+    </script>
 </body>
 </html>

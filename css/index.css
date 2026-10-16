@@ -1,0 +1,33 @@
+.last-paper-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 0 8px;
+}
+
+.last-paper-authors {
+    margin: 0 0 6px;
+}
+
+.last-paper-meta {
+    color: #666;
+    font-size: 14px;
+    margin: 0 0 14px;
+}
+
+.last-paper-links {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.last-paper-links a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.last-paper-pdf {
+    border: 1px solid #007bff;
+    border-radius: 6px;
+    padding: 4px 12px;
+}

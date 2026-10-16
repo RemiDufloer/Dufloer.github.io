@@ -1,0 +1,18 @@
+{
+  "cours": [
+    {
+      "annee": 2026,
+      "titre": "MPSCI INFO",
+      "description": "Introduction à la programmation et à l’utilisation des structures de données. Les étudiants apprennent à manipuler des structures classiques et à développer des programmes simples.",
+      "niveau": "L1",
+      "types": ["TD"]
+    },
+    {
+      "annee": 2025,
+      "titre": "PDS (Programmation des Systèmes)",
+      "description": "Étude du système de fichiers dans l’API POSIX (droits d’accès, utilisation) et introduction aux threads : création, gestion et synchronisation.",
+      "niveau": "L3",
+      "types": ["TD", "TP"]
+    }
+  ]
+}

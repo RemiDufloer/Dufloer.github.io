@@ -1,0 +1,34 @@
+{
+  "publications": [
+    {
+      "annee": 2025,
+      "type": "conf",
+      "titre": "Divergence-Driven Debugging: Understanding Behavioral Changes Between Two Program Versions",
+      "auteurs": ["Rémi Dufloer", "Imen Sayar", "Anne Etien", "Steven Costiou"],
+      "venue": "ICPC - ERA TRACK",
+      "lieu": "OTTAWA",
+      "date": "avril 2024",
+      "fichier": "publication/paper1.pdf"
+    },
+    {
+      "annee": 2026,
+      "type": "journal",
+      "titre": "Asking and Answering Questions During Differential Debugging",
+      "auteurs": ["Rémi Dufloer", "Imen Sayar", "Valentin Bourcier", "Alexandre Bergel", "Steven Costiou", "Anne Etien"],
+      "venue": "ESE",
+      "lieu": "",
+      "date": "Soumis avril 2026",
+      "fichier": "publication/paper2.pdf"
+    },
+    {
+      "annee": 2026,
+      "type": "workshop",
+      "titre": "How Developers Perceive Differential Debugging: an Exploratory Survey",
+      "auteurs": ["Rémi Dufloer", "Imen Sayar", "Steven Costiou", "Anne Etien"],
+      "venue": "DEBT 2026",
+      "lieu": "Bruxelle",
+      "date": "juillet 2026",
+      "fichier": "publication/paper3.pdf"
+    }
+  ]
+}

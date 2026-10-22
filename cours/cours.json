@@ -13,6 +13,13 @@
       "description": "Study of the file system through the POSIX API (access rights, usage) and introduction to threads: creation, management and synchronization.",
       "niveau": "L3",
       "types": ["TD", "TP"]
+    },
+    {
+      "annee": 2026,
+      "titre": "CAL",
+      "description": "This course covers software design principles, UML modeling, and Model-Driven Engineering (MDE), including the creation of software models, and automated code generation from UML and domain-specific languages (DSLs).",
+      "niveau": "M1",
+      "types": ["TD", "TP"]
     }
   ]
 }

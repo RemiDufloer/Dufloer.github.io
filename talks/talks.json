@@ -6,7 +6,7 @@
       "venue": "ICPC",
       "lieu": "Ottawa",
       "date": "April 2025",
-      "fichier": "ICPC2025.pdf"
+      "fichier": "talks/ICPC2025.pdf"
     },
     {
       "annee": 2025,
@@ -14,7 +14,7 @@
       "venue": "GDR DEVX",
       "lieu": "Lille",
       "date": "2025",
-      "fichier": "GTDEVx2025.pdf"
+      "fichier": "talks/GTDEVx2025.pdf"
     },
     {
       "annee": 2024,
@@ -22,7 +22,7 @@
       "venue": "GDR GPL",
       "lieu": "Strasbourg",
       "date": "2024",
-      "fichier": "GDRGPL2024.pdf"
+      "fichier": "talks/GDRGPL2024.pdf"
     },
     {
       "annee": 2024,
@@ -30,7 +30,7 @@
       "venue": "ESUG",
       "lieu": "Lille",
       "date": "2024",
-      "fichier": "ESUG2024.pdf"
+      "fichier": "talks/ESUG2024.pdf"
     },
     {
       "annee": 2024,
@@ -38,7 +38,7 @@
       "venue": "GDR DEVX",
       "lieu": "Rennes",
       "date": "2024",
-      "fichier": "GTDEVx2024.pdf"
+      "fichier": "talks/GTDEVx2024.pdf"
     },
     {
       "annee": 2024,
@@ -46,7 +46,7 @@
       "venue": "ECOOP - DEBT",
       "lieu": "Bruxelles",
       "date": "2026",
-      "fichier": "DEBT2026.pdf"
+      "fichier": "talks/DEBT2026.pdf"
     }
   ]
 }

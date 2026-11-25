@@ -29,118 +29,71 @@
         <p>Scientific talks and presentations</p>
     </div>
 
-    <div class="filters">
+    <div class="filters" id="filters">
         <button class="filter-btn active" onclick="filterTalks('all', this)">All</button>
-        <button class="filter-btn" onclick="filterTalks('2025', this)">2025</button>
-        <button class="filter-btn" onclick="filterTalks('2024', this)">2024</button>
     </div>
 
     <p class="count" id="count"></p>
 
-    <div class="talks" id="talks-list">
-
-        <div class="talk-card" data-year="2025">
-            <span class="talk-year">2025</span>
-            <div class="talk-body">
-                <p class="talk-title">Divergence-Driven Debugging</p>
-                <p class="talk-meta">ICPC · Ottawa</p>
-                <p class="talk-date">April 2025</p>
-            </div>
-            <div class="talk-actions">
-                <a class="btn-download" href="talksPrint/talk1.pdf" download>
-                    Slides (PDF)
-                </a>
-            </div>
-        </div>
-
-        <div class="talk-card" data-year="2024">
-            <span class="talk-year">2024</span>
-            <div class="talk-body">
-                <p class="talk-title">Un Protocole à Meta-Object pour l'implémentation de debuggers centrés objets</p>
-                <p class="talk-meta">GDR GPL · Strasbourg</p>
-                <p class="talk-date">2024</p>
-            </div>
-            <div class="talk-actions">
-                <a class="btn-download" href="talksPrint/talk3.pdf" download>
-                    Slides (PDF)
-                </a>
-            </div>
-        </div>
-
-        <div class="talk-card" data-year="2024">
-            <span class="talk-year">2024</span>
-            <div class="talk-body">
-                <p class="talk-title">Echo: a new debugging approach</p>
-                <p class="talk-meta">ESUG · Lille</p>
-                <p class="talk-date">2024</p>
-            </div>
-            <div class="talk-actions">
-                <a class="btn-download" href="talksPrint/talk4.pdf" download>
-                    Slides (PDF)
-                </a>
-            </div>
-        </div>
-
-        <div class="talk-card" data-year="2024">
-            <span class="talk-year">2024</span>
-            <div class="talk-body">
-                <p class="talk-title">Divergence-Driven Debugging: Understanding Behavioral Changes Between Two Program Versions</p>
-                <p class="talk-meta">GDR DEVX · Rennes</p>
-                <p class="talk-date">2024</p>
-            </div>
-            <div class="talk-actions">
-                <a class="btn-download" href="talksPrint/talk5.pdf" download>
-                    Slides (PDF)
-                </a>
-            </div>
-        </div>
-
-        <div class="talk-card" data-year="2025">
-            <span class="talk-year">2025</span>
-            <div class="talk-body">
-                <p class="talk-title">What is differential debugging? And how do developers use it?</p>
-                <p class="talk-meta">GDR DEVX · Lille</p>
-                <p class="talk-date">2025</p>
-            </div>
-            <div class="talk-actions">
-                <a class="btn-download" href="talksPrint/talk6.pdf" download>
-                    Slides (PDF)
-                </a>
-            </div>
-        </div>
-
-    </div>
+    <div class="talks" id="talks-list"></div>
 </div>
 
 <script>
-function sortTalks() {
-    const container = document.getElementById('talks-list');
-    const cards = Array.from(container.querySelectorAll('.talk-card'));
+function renderTalk(t) {
+    const meta = [t.venue, t.lieu].filter(Boolean).join(' · ');
+    const slides = t.fichier
+        ? `<div class="talk-actions">
+               <a class="btn-download" href="${t.fichier}" download>Slides (PDF)</a>
+           </div>`
+        : '';
 
-    cards.sort((a, b) => b.dataset.year - a.dataset.year);
-
-    cards.forEach(card => container.appendChild(card));
+    return `
+        <div class="talk-card" data-year="${t.annee}">
+            <span class="talk-year">${t.annee}</span>
+            <div class="talk-body">
+                <p class="talk-title">${t.titre}</p>
+                <p class="talk-meta">${meta}</p>
+                <p class="talk-date">${t.date || ''}</p>
+            </div>
+            ${slides}
+        </div>`;
 }
 
 function filterTalks(year, btn) {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
 
-    const cards = document.querySelectorAll('.talk-card');
     let visible = 0;
-
-    cards.forEach(card => {
+    document.querySelectorAll('.talk-card').forEach(card => {
         const match = year === 'all' || card.dataset.year === year;
         card.style.display = match ? '' : 'none';
         if (match) visible++;
     });
 
-    document.getElementById('count').textContent =
-        visible + ' talk' + (visible > 1 ? 's' : '');
+    document.getElementById('count').textContent = visible + ' talk' + (visible > 1 ? 's' : '');
 }
 
-sortTalks();
-filterTalks('all', document.querySelector('.filter-btn'));
+async function loadTalks() {
+    const res = await fetch('talks/talks.json');
+    const { talks } = await res.json();
+
+    talks.sort((a, b) => b.annee - a.annee);
+    document.getElementById('talks-list').innerHTML = talks.map(renderTalk).join('');
+
+    const years = [...new Set(talks.map(t => String(t.annee)))];
+    const filters = document.getElementById('filters');
+    years.forEach(y => {
+        const btn = document.createElement('button');
+        btn.className = 'filter-btn';
+        btn.textContent = y;
+        btn.onclick = () => filterTalks(y, btn);
+        filters.appendChild(btn);
+    });
+
+    filterTalks('all', filters.querySelector('.filter-btn'));
+}
+
+loadTalks();
 </script>
 
 </body>

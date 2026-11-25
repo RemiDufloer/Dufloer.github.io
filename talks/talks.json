@@ -1,0 +1,52 @@
+{
+  "talks": [
+    {
+      "annee": 2025,
+      "titre": "Divergence-Driven Debugging",
+      "venue": "ICPC",
+      "lieu": "Ottawa",
+      "date": "April 2025",
+      "fichier": "ICPC2025.pdf"
+    },
+    {
+      "annee": 2025,
+      "titre": "What is differential debugging? And how do developers use it?",
+      "venue": "GDR DEVX",
+      "lieu": "Lille",
+      "date": "2025",
+      "fichier": "GTDEVx2025.pdf"
+    },
+    {
+      "annee": 2024,
+      "titre": "Un Protocole à Meta-Object pour l'implémentation de debuggers centrés objets",
+      "venue": "GDR GPL",
+      "lieu": "Strasbourg",
+      "date": "2024",
+      "fichier": "GDRGPL2024.pdf"
+    },
+    {
+      "annee": 2024,
+      "titre": "Echo: a new debugging approach",
+      "venue": "ESUG",
+      "lieu": "Lille",
+      "date": "2024",
+      "fichier": "ESUG2024.pdf"
+    },
+    {
+      "annee": 2024,
+      "titre": "Divergence-Driven Debugging: Understanding Behavioral Changes Between Two Program Versions",
+      "venue": "GDR DEVX",
+      "lieu": "Rennes",
+      "date": "2024",
+      "fichier": "GTDEVx2024.pdf"
+    },
+    {
+      "annee": 2024,
+      "titre": "How Developers Perceive Differential Debugging: an Exploratory Survey",
+      "venue": "ECOOP - DEBT",
+      "lieu": "Bruxelles",
+      "date": "2026",
+      "fichier": "DEBT2026.pdf"
+    }
+  ]
+}

@@ -8,17 +8,17 @@
       "venue": "ICPC - ERA TRACK",
       "lieu": "Ottawa",
       "date": "April 2025",
-      "fichier": "publication/paper1.pdf"
+      "fichier": "publication/ICPC25.pdf"
     },
     {
       "annee": 2026,
       "type": "journal",
       "titre": "Asking and Answering Questions During Differential Debugging",
       "auteurs": ["Rémi Dufloer", "Imen Sayar", "Valentin Bourcier", "Alexandre Bergel", "Steven Costiou", "Anne Etien"],
-      "venue": "ESE",
+      "venue": "EMSE",
       "lieu": "",
       "date": "Submitted April 2026",
-      "fichier": "publication/paper2.pdf"
+      "fichier": "publication/EMSE26A.pdf"
     },
     {
       "annee": 2026,
@@ -28,7 +28,7 @@
       "venue": "DEBT 2026",
       "lieu": "Brussels",
       "date": "June 2026",
-      "fichier": "publication/paper3.pdf"
+      "fichier": "publication/DEBT26.pdf"
     }
   ]
 }

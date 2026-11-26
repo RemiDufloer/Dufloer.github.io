@@ -21,13 +21,13 @@
 }
 
 .last-paper-links a {
-    color: #007bff;
+    color: #e6338a;
     text-decoration: none;
     font-weight: bold;
 }
 
 .last-paper-pdf {
-    border: 1px solid #007bff;
+    border: 1px solid #e6338a;
     border-radius: 6px;
     padding: 4px 12px;
 }

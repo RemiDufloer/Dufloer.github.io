@@ -19,7 +19,6 @@ body {
 header {
     display: flex;
     align-items: center;
-    background-color: #007bff;
     color: white;
     padding: 15px 20px;
     font-family: Arial, sans-serif;
@@ -29,6 +28,34 @@ header {
 
 nav {
     margin-left: auto;
+}
+
+/* Rose pailleté (header + footer) */
+header,
+footer {
+    background-color: #ff4fa3;
+    background-image:
+        radial-gradient(circle, rgba(255,255,255,0.95) 1px, transparent 1.5px),
+        radial-gradient(circle, rgba(255,255,255,0.7) 1px, transparent 1.5px),
+        radial-gradient(circle, rgba(255,230,250,0.9) 0.8px, transparent 1.3px),
+        linear-gradient(120deg, #ff4fa3 0%, #ff8cc6 35%, #ff3d97 60%, #ffa3d1 100%);
+    background-size: 23px 19px, 37px 31px, 13px 17px, 300% 300%;
+    background-position: 0 0, 11px 7px, 5px 3px, 0% 50%;
+    animation: paillettes 6s ease-in-out infinite;
+    text-shadow: 0 1px 2px rgba(150, 0, 80, 0.45);
+}
+
+@keyframes paillettes {
+    0%   { background-position: 0 0, 11px 7px, 5px 3px, 0% 50%; }
+    50%  { background-position: 4px 2px, 7px 11px, 9px 0, 100% 50%; }
+    100% { background-position: 0 0, 11px 7px, 5px 3px, 0% 50%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    header,
+    footer {
+        animation: none;
+    }
 }
 
 nav ul {
@@ -60,7 +87,6 @@ section {
 footer {
     text-align: center;
     padding: 10px;
-    background-color: #007bff;
     color: white;
     margin-top: 20px;
     margin-top: auto;

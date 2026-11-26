@@ -90,7 +90,7 @@
             document.getElementById('current-project-list').innerHTML = ongoing.map(p => `
                 <div class="current-project">
                     <p class="last-paper-title">${p.titre}</p>
-                    <p class="last-paper-meta">Since ${p.debut}${p.tags && p.tags.length ? ' · ' + p.tags.join(', ') : ''}</p>
+                    <p class="last-paper-meta">${[p.debut && `Since ${p.debut}`, (p.tags || []).join(', ')].filter(Boolean).join(' · ')}</p>
                     <p>${p.description || ''}</p>
                 </div>`).join('');
             document.getElementById('current-project').hidden = false;

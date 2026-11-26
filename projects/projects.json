@@ -1,21 +1,48 @@
 {
   "projects": [
     {
-      "titre": "Differential Debugging",
+      "titre": "D3",
       "statut": "ongoing",
-      "debut": "2024",
+      "debut": "",
       "fin": "",
-      "description": "Understanding how developers debug behavioral changes between two versions of a program, and building tools to support them.",
-      "tags": ["Debugging", "Empirical study", "Pharo"],
-      "lien": ""
+      "description": "An online debugger that runs two versions of the same program side by side to surface their behavioral divergences.",
+      "tags": ["Debugging", "Differential debugging", "Tooling"],
+      "lien": "https://github.com/Divergence-Driven-Debugging"
+    },
+    {
+      "titre": "Meta-Object Protocol",
+      "statut": "completed",
+      "debut": "2024",
+      "fin": "2024",
+      "description": "Design and implementation of a meta-object protocol. Finished and available on GitHub.",
+      "tags": ["Reflection", "Language engineering", "Open source"],
+      "lien": "https://github.com/RemiDufloer/Pharo-MOP"
     },
     {
       "titre": "Echo",
       "statut": "completed",
       "debut": "2024",
       "fin": "2024",
-      "description": "A new debugging approach presented at ESUG 2024.",
-      "tags": ["Debugging", "Tooling"],
+      "description": "First proof of concept of a multi-version debugger, presented at ICPC 2025.",
+      "tags": ["Debugging", "Proof of concept", "Tooling"],
+      "lien": ""
+    },
+    {
+      "titre": "NoteBee",
+      "statut": "completed",
+      "debut": "",
+      "fin": "",
+      "description": "A tool for analyzing think-aloud video recordings from user studies.",
+      "tags": ["Empirical study", "Think-aloud", "Tooling"],
+      "lien": ""
+    },
+    {
+      "titre": "Analysis tooling (DSA)",
+      "statut": "ongoing",
+      "debut": "",
+      "fin": "",
+      "description": "Set up and maintained analysis tools such as DSA.",
+      "tags": ["Program analysis", "Maintenance"],
       "lien": ""
     }
   ]

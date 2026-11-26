@@ -46,7 +46,10 @@
 const STATUS_LABEL = { ongoing: 'Ongoing', completed: 'Completed' };
 
 function renderProject(p) {
-    const period = p.fin ? `${p.debut} – ${p.fin}` : `${p.debut} – present`;
+    const period = !p.debut ? ''
+        : p.fin === p.debut ? p.debut
+        : p.fin ? `${p.debut} – ${p.fin}`
+        : `${p.debut} – present`;
     const tags = (p.tags || []).map(t => `<span class="project-tag">${t}</span>`).join('');
     const link = p.lien
         ? `<div class="project-actions"><a class="btn-link" href="${p.lien}" target="_blank" rel="noopener">View →</a></div>`
@@ -57,7 +60,7 @@ function renderProject(p) {
             <span class="project-status ${p.statut}">${STATUS_LABEL[p.statut] || p.statut}</span>
             <div class="project-body">
                 <p class="project-title">${p.titre}</p>
-                <p class="project-period">${period}</p>
+                ${period ? `<p class="project-period">${period}</p>` : ''}
                 <p class="project-desc">${p.description || ''}</p>
                 <div class="project-tags">${tags}</div>
             </div>

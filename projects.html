@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/projects.css">
+</head>
+<body>
+
+<header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="papers.html">Publications</a></li>
+            <li><a href="talks.html">Talks</a></li>
+            <li><a href="survey.html">Survey</a></li>
+            <li><a href="class.html">Teaching</a></li>
+            <li><a href="competences.html">Skills</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Projects</h1>
+        <p>Research and software projects</p>
+    </div>
+
+    <div class="filters" id="filters">
+        <button class="filter-btn active" onclick="filterProjects('all', this)">All</button>
+        <button class="filter-btn" onclick="filterProjects('ongoing', this)">Ongoing</button>
+        <button class="filter-btn" onclick="filterProjects('completed', this)">Completed</button>
+    </div>
+
+    <p class="count" id="count"></p>
+
+    <div class="projects" id="projects-list"></div>
+</div>
+
+<script>
+const STATUS_LABEL = { ongoing: 'Ongoing', completed: 'Completed' };
+
+function renderProject(p) {
+    const period = p.fin ? `${p.debut} – ${p.fin}` : `${p.debut} – present`;
+    const tags = (p.tags || []).map(t => `<span class="project-tag">${t}</span>`).join('');
+    const link = p.lien
+        ? `<div class="project-actions"><a class="btn-link" href="${p.lien}" target="_blank" rel="noopener">View →</a></div>`
+        : '';
+
+    return `
+        <div class="project-card" data-status="${p.statut}">
+            <span class="project-status ${p.statut}">${STATUS_LABEL[p.statut] || p.statut}</span>
+            <div class="project-body">
+                <p class="project-title">${p.titre}</p>
+                <p class="project-period">${period}</p>
+                <p class="project-desc">${p.description || ''}</p>
+                <div class="project-tags">${tags}</div>
+            </div>
+            ${link}
+        </div>`;
+}
+
+function filterProjects(status, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    let visible = 0;
+    document.querySelectorAll('.project-card').forEach(card => {
+        const match = status === 'all' || card.dataset.status === status;
+        card.style.display = match ? '' : 'none';
+        if (match) visible++;
+    });
+
+    document.getElementById('count').textContent = visible + ' project' + (visible > 1 ? 's' : '');
+}
+
+async function loadProjects() {
+    const res = await fetch('projects/projects.json');
+    const { projects } = await res.json();
+
+    // Ongoing first, then most recent start date
+    projects.sort((a, b) =>
+        (a.statut === 'ongoing' ? 0 : 1) - (b.statut === 'ongoing' ? 0 : 1) ||
+        String(b.debut).localeCompare(String(a.debut)));
+
+    document.getElementById('projects-list').innerHTML = projects.map(renderProject).join('');
+    filterProjects('all', document.querySelector('.filter-btn'));
+}
+
+loadProjects();
+</script>
+
+</body>
+</html>

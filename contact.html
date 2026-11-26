@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/contact.css">
+</head>
+<body>
+
+<header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="papers.html">Publications</a></li>
+            <li><a href="talks.html">Talks</a></li>
+            <li><a href="survey.html">Survey</a></li>
+            <li><a href="class.html">Teaching</a></li>
+            <li><a href="competences.html">Skills</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Contact</h1>
+        <p>Feel free to reach out</p>
+    </div>
+
+    <div class="contacts" id="contacts"></div>
+</div>
+
+<script>
+async function loadContact() {
+    const res = await fetch('contact/contact.json');
+    const c = await res.json();
+    const items = [];
+
+    if (c.email) {
+        items.push({ label: 'Email', value: c.email, href: `mailto:${c.email}` });
+    }
+    if (c.github) {
+        items.push({ label: 'GitHub', value: `github.com/${c.github}`, href: `https://github.com/${c.github}` });
+    }
+
+    document.getElementById('contacts').innerHTML = items.map(i => `
+        <a class="contact-card" href="${i.href}" ${i.href.startsWith('http') ? 'target="_blank" rel="noopener"' : ''}>
+            <span class="contact-label">${i.label}</span>
+            <span class="contact-value">${i.value}</span>
+        </a>`).join('');
+}
+
+loadContact();
+</script>
+
+</body>
+</html>

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Survey - Debugging Practices</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/survey.css">
 </head>
 <body>
     <header>
@@ -16,6 +17,8 @@
                 <li><a href="survey.html">Survey</a></li>
                 <li><a href="class.html">Teaching</a></li>
                 <li><a href="competences.html">Skills</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -48,15 +51,135 @@
     </section>
 
 
-    <section>
+    <div class="container">
+
+    <section id="survey-intro">
+        <h2>About the Survey</h2>
+        <p>We are researchers at the University of Lille, France, studying how developers handle a specific bug scenario.</p>
+        <p>This survey aims to:</p>
+        <ul>
+            <li>Assess debugging strategies in the developer community.</li>
+            <li>Identify resolution strategies and challenges.</li>
+            <li>Understand developers' needs regarding debugging tools and resources.</li>
+        </ul>
+        <p>Your participation is valuable, and we appreciate your time.</p>
+    </section>
+
+    <section id="data-policy">
+        <h2>Data Handling Policy</h2>
+        <div class="encadre">
+            <ul>
+                <li>Your identity remains anonymous; IP addresses are not saved.</li>
+                <li>No sensitive information is collected; please avoid sharing personal data.</li>
+                <li>You can withdraw at any time by closing the questionnaire; incomplete data will be removed.</li>
+                <li>The survey is hosted on LimeSurvey, and data is stored securely for research purposes only.</li>
+                <li>Responsible researcher: Steven Costiou (steven.costiou@inria.fr), Univ. Lille, Inria, CNRS, Centrale Lille, UMR 9189 CRIStAL, F-59000 Lille, France.</li>
+            </ul>
+        </div>
+    </section>
+
+
+   
+<div class="container">
+
+    <section id="survey-intro">
+        <h2>About the Survey</h2>
+        <p>We are researchers at the University of Lille, France, studying how developers handle a specific bug scenario.</p>
+        <p>This survey aimed to:</p>
+        <ul>
+            <li>Assess debugging strategies in the developer community.</li>
+            <li>Identify resolution strategies and challenges.</li>
+            <li>Understand developers' needs regarding debugging tools and resources.</li>
+        </ul>
+        <p>Your participation was valuable, and we sincerely thank everyone who took the time to complete the survey.</p>
+    </section>
+
+    <section id="data-policy">
+        <h2>Data Handling Policy</h2>
+        <div class="encadre">
+            <ul>
+                <li>Participants' identities remain anonymous; IP addresses are not saved.</li>
+                <li>No sensitive information was collected; participants were asked to avoid sharing personal data.</li>
+                <li>Participants could withdraw at any time by closing the questionnaire; incomplete responses were removed.</li>
+                <li>The survey was hosted on LimeSurvey, and data is stored securely for research purposes only.</li>
+                <li>Responsible researcher: Steven Costiou (steven.costiou@inria.fr), Univ. Lille, Inria, CNRS, Centrale Lille, UMR 9189 CRIStAL, F-59000 Lille, France.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="survey-results">
         <h2>Survey Results</h2>
-        <p>Once the survey is completed, the results will be available on this page. We will publish an analysis of the findings to share insights into debugging practices, which will be used for a research paper. Stay tuned!</p>
+
+        <p>
+            <strong>Publication:</strong>
+            The survey results and research findings are published in
+            <em>How Developers Perceive Differential Debugging: an Exploratory Survey</em>
+            (DEBT 2026, Brussels).
+            <a href="publication/DEBT26.pdf" target="_blank" rel="noopener">Paper (PDF)</a> ·
+            <a href="talks/DEBT2026.pdf" target="_blank" rel="noopener">Slides (PDF)</a>
+        </p>
+
+        <object class="pdf-viewer" data="publication/DEBT26.pdf" type="application/pdf">
+            <p>Your browser cannot display the PDF inline.
+               <a href="publication/DEBT26.pdf" download>Download the paper</a>.</p>
+        </object>
+
+        <p>
+            The survey is now closed. Thank you to all 212 developers
+            who took the time to participate and share their experiences.
+            Your contributions made this study possible.
+        </p>
+
+        <p>
+            When developers modify a program to add features or refactor
+            existing code, they may inadvertently introduce bugs, resulting
+            in a broken version. In such situations, referred to as
+            <em>differential debugging scenarios</em>, developers need to
+            understand why two versions behave differently in order to
+            identify and fix the underlying problem.
+        </p>
+
+        <p>
+            To assess the perceived impact of differential debugging
+            scenarios, we conducted a preliminary study through a survey
+            involving 212 developers from diverse professional backgrounds
+            and application domains. The results show that these scenarios
+            are widespread: 93% of respondents reported having encountered
+            this type of bug at least once. Moreover, more than half of
+            the participants indicated that such scenarios affect their
+            development activities, often requiring considerable time
+            and effort to resolve.
+        </p>
+
+        <p>
+            Our findings also reveal mixed perceptions regarding the
+            adequacy of existing practices and tools. While preventive
+            techniques such as continuous integration and code review
+            are generally considered helpful, many developers report that
+            current debugging tools provide limited support for
+            understanding the causes of failures introduced between
+            software versions.
+        </p>
+
+        <p>
+            Overall, this survey provides an initial, large-scale
+            characterization of developers' perceptions of differential
+            debugging scenarios. It highlights the need for further
+            empirical research into how such bugs are handled in practice
+            and how tool support could be improved.
+        </p>
+
+        <p>
+            <strong>
+                The survey is now closed. Thank you once again to everyone
+                who participated and contributed to this research!
+            </strong>
+        </p>
 
     </section>
-    </div>
 
-    <footer>
-        <p>© 2025 Rémi Dufloer</p>
-    </footer>
+</div>
+
+
 </body>
 </html>

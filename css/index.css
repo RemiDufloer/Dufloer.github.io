@@ -31,3 +31,12 @@
     border-radius: 6px;
     padding: 4px 12px;
 }
+
+.current-project {
+    margin-bottom: 14px;
+}
+
+.current-project + .current-project {
+    padding-top: 14px;
+    border-top: 1px solid rgba(0,0,0,0.08);
+}

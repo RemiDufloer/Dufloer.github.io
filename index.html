@@ -21,6 +21,8 @@
                 <li><a href="survey.html">Survey</a></li>
                 <li><a href="class.html">Teaching</a></li>
                 <li><a href="competences.html">Skills</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -34,6 +36,14 @@
             <p>As I move forward in my PhD, I am already looking for <b>postdoctoral opportunities</b> to continue my academic journey and contribute to research in software engineering.</p>
 
             <p>And, on a more personal note, I am also the proud dad of a (not-so-)little dog!</p>
+        </section>
+
+        <section id="current-project" hidden>
+            <h2>Current Project</h2>
+            <div id="current-project-list"></div>
+            <div class="last-paper-links">
+                <a href="projects.html">All projects →</a>
+            </div>
         </section>
 
         <section id="last-paper">
@@ -67,7 +77,24 @@
             else pdf.remove();
         }
 
+        async function loadCurrentProject() {
+            const res = await fetch('projects/projects.json');
+            const { projects } = await res.json();
+
+            const ongoing = projects.filter(p => p.statut === 'ongoing');
+            if (!ongoing.length) return;
+
+            document.getElementById('current-project-list').innerHTML = ongoing.map(p => `
+                <div class="current-project">
+                    <p class="last-paper-title">${p.titre}</p>
+                    <p class="last-paper-meta">Since ${p.debut}${p.tags && p.tags.length ? ' · ' + p.tags.join(', ') : ''}</p>
+                    <p>${p.description || ''}</p>
+                </div>`).join('');
+            document.getElementById('current-project').hidden = false;
+        }
+
         loadLastPaper();
+        loadCurrentProject();
     </script>
 </body>
 </html>

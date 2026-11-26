@@ -1,0 +1,22 @@
+{
+  "projects": [
+    {
+      "titre": "Differential Debugging",
+      "statut": "ongoing",
+      "debut": "2024",
+      "fin": "",
+      "description": "Understanding how developers debug behavioral changes between two versions of a program, and building tools to support them.",
+      "tags": ["Debugging", "Empirical study", "Pharo"],
+      "lien": ""
+    },
+    {
+      "titre": "Echo",
+      "statut": "completed",
+      "debut": "2024",
+      "fin": "2024",
+      "description": "A new debugging approach presented at ESUG 2024.",
+      "tags": ["Debugging", "Tooling"],
+      "lien": ""
+    }
+  ]
+}
